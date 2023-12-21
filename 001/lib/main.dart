@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Container 위젯 예제'),
+          title: const Text('Container 위젯 예제',
+              style: TextStyle(color: Colors.white)),
+          backgroundColor: Colors.blue,
         ),
         body: Center(
           child: Container(
@@ -28,6 +30,11 @@ class MyApp extends StatelessWidget {
                     'images/flutter.png',
                     width: 200,
                     height: 200,
+                  ),
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.pink,
+                    size: 50.0,
                   ),
                 ],
               )),
