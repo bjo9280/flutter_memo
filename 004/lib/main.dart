@@ -51,7 +51,7 @@ class _MyMemoAppPageState extends State<MyMemoAppPage> {
         itemBuilder: (context, index) {
           // 각 메모 아이템을 나타내는 ListTile
           return ListTile(
-            title: Text('item $index'),
+            title: Text(items[index]),
             trailing: IconButton(
               icon: const Icon(Icons.delete),
               onPressed: () {
