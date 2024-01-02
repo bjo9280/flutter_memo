@@ -8,7 +8,8 @@ class MyMemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyMemoAppPage(),
+      // home: MyMemoAppPage(),
+      home: MemoInputPage(),
     );
   }
 }
@@ -30,15 +31,8 @@ class _MyMemoAppPageState extends State<MyMemoAppPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MemoInputPage()),
-              ).then((value) {
-                if (value != null) {
-                  setState(() {
-                    items.add(value); // Add the new item
-                  });
-                }
+              setState(() {
+                items.add('New Item'); // Add the new item
               });
             },
             style: IconButton.styleFrom(foregroundColor: Colors.white),
