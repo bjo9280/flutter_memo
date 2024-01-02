@@ -8,8 +8,7 @@ class MyMemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: MyMemoAppPage(),
-      home: MemoInputPage(),
+      home: MyMemoAppPage(),
     );
   }
 }
@@ -31,8 +30,15 @@ class _MyMemoAppPageState extends State<MyMemoAppPage> {
         actions: [
           IconButton(
             onPressed: () {
-              setState(() {
-                items.add('New Item'); // Add the new item
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MemoInputPage()),
+              ).then((value) {
+                if (value != null) {
+                  setState(() {
+                    items.add(value); // Add the new item
+                  });
+                }
               });
             },
             style: IconButton.styleFrom(foregroundColor: Colors.white),
@@ -86,7 +92,9 @@ class MemoInputPage extends StatelessWidget {
             SizedBox(height: 16.0), // 텍스트 필드와 버튼 사이에 여백 추가
             // 메모를 추가하는 버튼 설정
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                print(_textController.text);
+              },
               child: Text('Add Memo'), // 버튼에 표시될 텍스트
             ),
           ],
